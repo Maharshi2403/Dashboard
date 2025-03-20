@@ -13,7 +13,7 @@ export default function Home() {
     e.preventDefault();
     try {
       const response = await fetch("https://dashboard-a902.onrender.com/signup", {
-        method: "POST",
+        method: "GET",
         body: JSON.stringify({ email, password }),
         headers: {
           "Content-Type": "application/json",

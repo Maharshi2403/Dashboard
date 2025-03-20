@@ -6,7 +6,7 @@ import cors from "cors";
 
 app.use(cors());
 
-app.get("/signup", async (req, res) => {
+app.post("/signup", async (req, res) => {
     const Email = req.body.email;
     const Password = req.body.password;
 
@@ -24,7 +24,7 @@ app.get("/signup", async (req, res) => {
    
 })
 
-app.get("/signin", async (req, res) => {
+app.post("/signin", async (req, res) => {
     const Email = req.body.email;
     const Password = req.body.password;
 
