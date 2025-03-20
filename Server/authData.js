@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const key = "mongodb+srv://Maha7178:yA203784@cluster0.xthh0zw.mongodb.net/Dashboard/"
+const key = "mongodb+srv://Maha7178:yA203784@cluster0.xthh0zw.mongodb.net/Dashboard"
 
 async function connect(){
     try {

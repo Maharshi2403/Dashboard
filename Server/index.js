@@ -16,7 +16,9 @@ app.get("/signup", async (req, res) => {
     }else{
         const newUser = new Users({email: Email, password: Password})
         await newUser.save()
+        console.log("User created successfully");
         return res.status(200).json({message: "User created successfully"})
+        
     }
 
    
@@ -32,6 +34,10 @@ app.get("/signin", async (req, res) => {
     }else{
         if(user.password !== Password){
             return res.status(200).json({message: "Invalid password"})
+        }else{
+            console.log("User logged in successfully");
+            return res.status(200).json({message: "User logged in successfully"})
+            
         }
     }
     
