@@ -1,23 +1,23 @@
 import mongoose from "mongoose";
 
-const key = "mongodb+srv://Maha7178:yA203784@cluster0.xthh0zw.mongodb.net/Dashboard"
+const key = "mongodb+srv://Maha7178:yA203784@cluster0.xthh0zw.mongodb.net/Auth";
 
-async function connect(){
-    try {
-        await mongoose.connect(key)
-        console.log("Connected to MongoDB")
-    } catch (error) {
-        console.log("Error connecting to MongoDB", error)
-    }
+async function connect() {
+  try {
+    await mongoose.connect(key);
+    console.log("Connected to MongoDB");
+  } catch (error) {
+    console.log("Error connecting to MongoDB", error);
+  }
 }
 
-connect()
+connect();
 
 const userSchema = new mongoose.Schema({
-    email: String,
-    password: String
-})
+  email: String,
+  password: String,
+});
 
-const Users = mongoose.models.User || mongoose.model("Data", userSchema)
+const Users = mongoose.models.User || mongoose.model("Data", userSchema);
 
 export default Users;
