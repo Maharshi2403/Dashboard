@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -12,22 +11,24 @@ export default function Home() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     try {
-      const response = await fetch("https://dashboard-a902.onrender.com/signup", {
-        method: "GET",
-        body: JSON.stringify({ email, password }),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if(response.status === 200){
+      const response = await fetch(
+        "https://dashboard-a902.onrender.com/signup",
+        {
+          method: "POST",
+          body: JSON.stringify({ email, password }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.status === 200) {
         console.log("User created successfully");
         router.push("/Dashboard/dasboard");
-      }else{
+      } else {
         console.log("User not found");
       }
 
       // Navigate to dashboard after successful signup
-      
     } catch (error) {
       console.error("Error saving user:", error);
       alert("Failed to create user. Please try again.");

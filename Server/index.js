@@ -5,6 +5,7 @@ import cors from "cors";
 
 
 app.use(cors());
+app.use(express.json());
 
 app.post("/signup", async (req, res) => {
     const Email = req.body.email;
