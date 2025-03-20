@@ -11,7 +11,8 @@ app.post("/signup", async (req, res) => {
     const Email = req.body.email;
     const Password = req.body.password;
 
-    const user = Users.findOne({email: Email})
+    const user = await Users.findOne({email: Email})
+
     if(!user){
         const newUser = new Users({email: Email, password: Password})
         await newUser.save()
