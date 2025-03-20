@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+//import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter();
+  //const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,8 +22,7 @@ export default function Home() {
         }
       );
       if (response.status === 200) {
-        console.log("User created successfully");
-        router.push("/Dashboard/dasboard");
+        console.log(response.json());
       } else {
         console.log("User not found");
       }

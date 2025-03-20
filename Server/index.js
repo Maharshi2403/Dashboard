@@ -12,13 +12,14 @@ app.post("/signup", async (req, res) => {
     const Password = req.body.password;
 
     const user = Users.findOne({email: Email})
-    if(user){
-        return res.status(200).json({message: "User already exist"})
-    }else{
+    if(!user){
         const newUser = new Users({email: Email, password: Password})
         await newUser.save()
         console.log("User created successfully");
         return res.status(200).json({message: "User created successfully"})
+       
+    }else{
+        return res.status(200).json({message: "User already exist"})
         
     }
 
