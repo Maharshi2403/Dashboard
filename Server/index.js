@@ -11,10 +11,10 @@ app.post("/signup", async (req, res) => {
     const Email = req.body.email;
     const Password = req.body.password;
 
-    const user = await Users.findOne({email: Email})
+    const user = await Users.findOne({username: Email})
 
     if(!user){
-        const newUser = new Users({email: Email, password: Password})
+        const newUser = new Users({username: Email, password: Password})
         await newUser.save()
         console.log("User created successfully");
         return res.status(200).json({message: "User created successfully"})
@@ -31,7 +31,7 @@ app.post("/signin", async (req, res) => {
     const Email = req.body.email;
     const Password = req.body.password;
 
-    const user = Users.findOne({email: Email})
+    const user = Users.findOne({username: Email})
     if(!user){
         return res.status(200).json({message: "User not found"})
     }else{
