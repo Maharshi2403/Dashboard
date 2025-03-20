@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const key =
   "mongodb+srv://Maha7178:yA203784@cluster0.xthh0zw.mongodb.net/Dashboard";
 
-async function connect() {
+async function Dbconnect() {
   try {
     await mongoose.connect(key);
     console.log("Connected to MongoDB");
@@ -12,13 +12,22 @@ async function connect() {
   }
 }
 
-connect();
+Dbconnect();
 
 const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
+  username: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  id: {
+    type: String,
+  },
 });
 
-const Users = mongoose.models.User || mongoose.model("Data", userSchema);
+const Users = mongoose.models.User || mongoose.model("user", userSchema);
 
 export default Users;
